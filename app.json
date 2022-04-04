@@ -1,0 +1,8 @@
+{
+    "name": "edu-backend",
+    "description": "JS Backend",
+    "repository": "https://github.com/GeorgeMalhab/edu-backend.git",
+    "logo": "http://cd.rawgit.com/heroku/node-js-getting-start/main/public/node.svg",
+    "keywords": ["node", "express", "heroku"],
+    "image": "heroku/nodejs"
+}
