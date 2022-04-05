@@ -8,9 +8,9 @@ mongoose.connect("mongodb+srv://george89:<password>@cluster0.7ttue.mongodb.net/m
     useUnifiedTopoloy: true,
 })
 
-const Thread = require("./model/theards");
-const Reply = require("./model/replises");
-const Like = require("./model/likes");
+//const Thread = require("./model/theards");
+//const Reply = require("./model/replises");
+//const Like = require("./model/likes");
 const User = require("./model/users");
 
 const app = express()
@@ -114,7 +114,9 @@ app.get("/users/:id", (require, response) =>{
        User.findById(request.params.id, (err, user) => {
            console.log(user)
            if (err) throw error;
-           if (user)
+           if (user){
+
+           }
  
        })
 })
