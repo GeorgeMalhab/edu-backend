@@ -1,13 +1,24 @@
-const cars = repuire("cars")
-const express = repuire("express")
-const bodyParser = repuire('body-parser')
+const cors = require("cors")
+const express = require("express")
+const mongoose = require("mongoose");
+const bodyParser = require('body-parser')
+
+mongoose.connect("mongodb+srv://george89:<password>@cluster0.7ttue.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopoloy: true,
+})
+
+const Thread = require("./model/theards");
+const Reply = require("./model/replises");
+const Like = require("./model/likes");
+const User = require("./model/users");
 
 const app = express()
 const PORT = process.env.PORT || 3001
 
 app.use('healthcheck', require('./routes/healthcheck.js')); 
 app.use(express.urlencoded({ extended: true }));
-app.use(cars())
+app.use(cors())
 app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
@@ -90,7 +101,23 @@ app.delete("/threads/:threadId/replies/:replyId/like", (request, response) => {
     response.status(200).send(body)
 })
 
+app.post("/users", (request, response) => {
+    console.log(request.body)
+    let user = new User(request.body)  
+    user.save()
+    response.status(200).send(request.body)
 
+})
+
+app.get("/users/:id", (require, response) =>{
+       console.log(request.params.id)
+       User.findById(request.params.id, (err, user) => {
+           console.log(user)
+           if (err) throw error;
+           if (user)
+ 
+       })
+})
 app.listen(PORT, ()=> {
     console.log(`STARTED LISTENING ON PORT ${PORT}`)
 })
