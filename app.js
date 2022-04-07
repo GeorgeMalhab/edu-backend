@@ -1,9 +1,9 @@
 const cors = require("cors")
-const express = require("express")
-const mongoose = require("mongoose");
+const express = require('express')
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 
-mongoose.connect("mongodb+srv://george89:<password>@cluster0.7ttue.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect('mongodb+srv://george89:<password>@cluster0.7ttue.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopoloy: true,
 })
@@ -11,7 +11,7 @@ mongoose.connect("mongodb+srv://george89:<password>@cluster0.7ttue.mongodb.net/m
 //const Thread = require("./model/theards");
 //const Reply = require("./model/replises");
 //const Like = require("./model/likes");
-const User = require("./model/users");
+const User = require ('./model/users');
 
 const app = express()
 const PORT = process.env.PORT || 3001
