@@ -79,7 +79,7 @@ app.get("/threads", (request, response) => {
 
 app.get("/threads/:id", (request, response) => {
     console.log(request.params)
-    body={"id":"1":request.params.id}
+    body={"id":request.params.id}
     response.status(200).send(body)
 })
 
